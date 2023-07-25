@@ -8,8 +8,8 @@ require('dotenv').config();
 // Connect to the database
 require('./config/database');
 
-const indexRouter = require('./routes/api/index');
-const usersRouter = require('./routes/api/users');
+// const indexRouter = require('./routes/api/index');
+// const usersRouter = require('./routes/api/users');
 
 const app = express();
 
@@ -26,8 +26,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server
