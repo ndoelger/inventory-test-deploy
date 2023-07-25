@@ -1,17 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config();
 // Connect to the database
 require('./config/database');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/api/index');
+const usersRouter = require('./routes/api/users');
 
-var app = express();
+const app = express();
+
+app.use(logger('dev'));
+app.use(express.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +33,15 @@ app.use('/users', usersRouter);
 // development to avoid collision with React's dev server
 const port = process.env.PORT || 3001;
 
+// Put API routes here, before the "catch all" route
+app.use('/api/users', require('./routes/api/users'));
+
+// The following "catch all" route (note the *) is necessary
+// to return the index.html on all non-AJAX/API requests
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -46,8 +58,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
-
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
 });
+
+module.exports = app;

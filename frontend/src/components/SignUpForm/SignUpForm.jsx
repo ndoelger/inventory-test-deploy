@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends Component {
   state = {
@@ -10,12 +11,27 @@ export default class SignUpForm extends Component {
   };
 
   handleChange = (evt) => {
-
+    this.setState({
+      [evt.target.name]: evt.target.value,
+      error: ''
+    });
   };
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
-
+    try {
+      const {name, email, password} = this.state;
+      const formData = {name, email, password};
+      // The promise returned by the signUp service
+      // method will resolve to the user object included
+      // in the payload of the JSON Web Token (JWT)
+      const user = await signUp(formData);
+      this.props.setUser(user);
+    } catch {
+      // An error occurred
+      // Probably due to a duplicate email
+      this.setState({ error: 'Sign Up Failed - Try Again' });
+    }
   };
 
   render() {
