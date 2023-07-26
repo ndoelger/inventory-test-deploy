@@ -16,6 +16,14 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
+//------------------------------------------------
+//importing tools needed for api
+//------------------------------------------------
+var cors = require('cors');
+var inventoryRouter = require('./routes/inventoryitems')
+//------------------------------------------------
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -26,8 +34,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+//--------------------------------------
+//app.use statements for api calls
+//--------------------------------------
+app.use(cors());
+app.use(express.json());
+app.use('/inventoryitems', inventoryRouter);
+//--------------------------------------
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server
