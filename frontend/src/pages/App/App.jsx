@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { getItems } from '../../utilities/items-service';
+
 import ItemsList from '../ItemsList/ItemsList'
 import { getUser } from "../../utilities/users-service";
 
@@ -17,6 +18,12 @@ export default function App() {
     const response = await getItems();
     setItems(response)
   }
+
+  useEffect(()=>{
+    if(user){
+      getItem();
+    }
+  },[])
 
   return (
     <main className="App">

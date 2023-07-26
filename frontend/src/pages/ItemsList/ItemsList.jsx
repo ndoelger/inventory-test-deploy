@@ -3,6 +3,7 @@ import ItemCard from '../../components/ItemCard/ItemCard';
 
 
 export default function ItemsList({ items }) {
+  console.log(items)
   const inventory = items.map((i) => {
     return <ItemCard item={i}/>;
   });
