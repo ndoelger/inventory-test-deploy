@@ -1,41 +1,56 @@
 import { createItem } from "../../utilities/items-service";
 import { useState } from "react";
 
-export default function AddItem() {
+export default function AddItem({ getItem }) {
+  const [item, setItem] = useState({
+    productname: "",
+    quantity: 0,
+    SKU: "",
+  });
 
-    const [item, setItem] = useState({
-        productname: '',
-        quantity: 0,
-        SKU: ''
-    });
-
-
-async function handleSubmit(evt){
+  async function handleSubmit(evt) {
     evt.preventDefault();
     await createItem(item);
     setItem({
-        productname: '',
-        quantity: 0,
-        SKU: ''
-    })
+      productname: "",
+      quantity: 0,
+      SKU: "",
+    });
+    getItem();
+  }
 
-}
-
-function handleChange(evt){
-    const itemData = {...item, [evt.target.name]: evt.target.value};
+  function handleChange(evt) {
+    const itemData = { ...item, [evt.target.name]: evt.target.value };
     setItem(itemData);
-}    
+  }
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>Product Name: </label>
-            <input type="text" name="productname" value={item.productname} onChange={handleChange} required/>
-            <label>Quantity: </label>       
-            <input type="text" name="quantity" value={item.quantity} onChange={handleChange} required />
-            <label>SKU: </label>
-            <input type="text" name="SKU" value={item.SKU} onChange={handleChange} required />
-            <button type="submit">Submit</button>
-        </form>
-    )
-
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>Product Name: </label>
+      <input
+        type="text"
+        name="productname"
+        value={item.productname}
+        onChange={handleChange}
+        required
+      />
+      <label>Quantity: </label>
+      <input
+        type="text"
+        name="quantity"
+        value={item.quantity}
+        onChange={handleChange}
+        required
+      />
+      <label>SKU: </label>
+      <input
+        type="text"
+        name="SKU"
+        value={item.SKU}
+        onChange={handleChange}
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
