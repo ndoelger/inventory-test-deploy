@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { getItems } from '../../utilities/items-service';
-import ItemsList from '../ItemsList/ItemsList';
+
+import ItemsList from '../ItemsList/ItemsList'
+import { getUser } from "../../utilities/users-service";
 
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../../components/AuthPage/AuthPage";
@@ -9,7 +11,7 @@ import AuthPage from "../../components/AuthPage/AuthPage";
 import "./App.css";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(getUser());
   const [items, setItems] = useState([]);
 
   const getItem = async () => {
