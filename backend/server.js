@@ -20,7 +20,7 @@ app.use(express.json());
 //importing tools needed for api
 //------------------------------------------------
 var cors = require('cors');
-var inventoryRouter = require('./routes/inventoryitems')
+var inventoryRouter = require('./routes/api/inventoryitems')
 //------------------------------------------------
 
 

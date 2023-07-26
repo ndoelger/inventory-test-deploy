@@ -1,4 +1,4 @@
-const inventory = require('../models/inventoryitem');
+const inventory = require('../../models/inventoryitem');
 
 module.exports = {
     getAll,

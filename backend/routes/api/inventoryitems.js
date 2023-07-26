@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
-inventoryCtrl = require('../controllers/inventoryitems')
-const inventory = require('../models/inventoryitem');
+const inventoryCtrl = require('../../controllers/api/inventoryitems')
 
 //get all items
 router.get('/', inventoryCtrl.getAll);
