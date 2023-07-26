@@ -4,12 +4,21 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-require('dotenv').config({ path: '../.env' });
+
+
+require('dotenv').config();
 // Connect to the database
 require('./config/database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+//------------------------------------------------
+//importing tools needed for api
+//------------------------------------------------
+var cors = require('cors');
+var inventoryRouter = require('./routes/inventoryitems')
+//------------------------------------------------
 
 var app = express();
 
@@ -23,8 +32,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+//--------------------------------------
+//app.use statements for api calls
+//--------------------------------------
+app.use(cors());
+app.use(express.json());
+app.use('/inventoryitems', inventoryRouter);
+//--------------------------------------
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server
