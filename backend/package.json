@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -19,6 +19,5 @@
     "mongoose": "^7.4.1",
     "morgan": "~1.9.1",
     "serve-favicon": "^2.5.0"
-  },
-  "proxy": "http://localhost:3001"
+  }
 }
