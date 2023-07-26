@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import ItemCard from '../../components/ItemCard/ItemCard';
-
+import AddItem from '../../components/AddItem/AddItem';
 
 export default function ItemsList({ items }) {
   console.log(items)
@@ -14,6 +14,7 @@ export default function ItemsList({ items }) {
     <>
       <h1>InventoryItems</h1>
       {(items.length !== 0) ? <ul>{inventory}</ul> : <h2>No Items Yet!</h2>}
+      <AddItem />
     </>
   )
 };
