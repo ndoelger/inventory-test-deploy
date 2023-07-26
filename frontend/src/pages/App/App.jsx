@@ -13,6 +13,9 @@ export default function App() {
       {user ? (
         <>
           <NavBar user={user} setUser={setUser} />
+          <Routes>
+            <Route path="/inventory" element={<InventoryPage user={user} />} />
+          </Routes>
         </>
       ) : (
         <AuthPage setUser={setUser} />
