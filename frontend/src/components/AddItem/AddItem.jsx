@@ -1,5 +1,6 @@
 import { createItem } from "../../utilities/items-service";
 import { useState } from "react";
+import './AddItem.css';
 
 export default function AddItem({ getItem }) {
   const [item, setItem] = useState({
@@ -25,7 +26,7 @@ export default function AddItem({ getItem }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='add-item-form'>
       <label>Product Name: </label>
       <input
         type="text"
