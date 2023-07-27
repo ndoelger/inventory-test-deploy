@@ -5,6 +5,8 @@ import { getItems } from '../../utilities/items-service';
 import ItemsList from '../ItemsList/ItemsList'
 import { getUser } from "../../utilities/users-service";
 
+import ItemDetail from "../ItemDetail/ItemDetail"
+
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../../components/AuthPage/AuthPage";
 
@@ -32,6 +34,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/" element={<ItemsList user={user} items={items} getItem={getItem} />} />
+            <Route path="/item/:id" element={<ItemDetail items={items} />} />
           </Routes>
         </>
       ) : (
