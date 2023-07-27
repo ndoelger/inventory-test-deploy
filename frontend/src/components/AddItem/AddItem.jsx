@@ -4,6 +4,7 @@ import { createItem } from "../../utilities/items-service";
 import './AddItem.css';
 
 export const AddItem = ({ getItem }) => {
+  const navigate = useNavigate();
   const [item, setItem] = useState({
     productname: "",
     quantity: 0,
@@ -19,6 +20,7 @@ export const AddItem = ({ getItem }) => {
       SKU: "",
     });
     getItem();
+    navigate(-1);
   }
 
   function handleChange(evt) {
@@ -26,7 +28,6 @@ export const AddItem = ({ getItem }) => {
     setItem(itemData);
   }
 
-  const navigate = useNavigate();
   return (
     <div className="modalDiv">
       <div className="modal">
