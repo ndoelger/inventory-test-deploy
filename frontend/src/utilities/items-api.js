@@ -9,3 +9,13 @@ export async function getItems() {
 export async function newItem(formData) {
   return sendRequest(`${BASE_URL}/new`, 'POST', formData);
 }
+
+export async function deleteItem(id){
+
+  return sendRequest(`${BASE_URL}/:id`, 'DELETE', id);
+}
+
+export async function updateItem(formData){
+
+
+}
