@@ -1,33 +1,17 @@
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
+export default function ItemDetail() {
 
-export default function ItemDetail({items}) {
-  
-const { itemid } = useParams();
-  
+const location = useLocation();
+const { item } = location.state;
 
-  
     return (
-        <>
-            {items.map((i) => {
-                if (i.id === itemid){
-                    return (
-                        <div className='item-detail'>
-                            <h2>{i.productname}</h2>
-                            <h3><span>Qty: {i.quantity}</span> | <span>SKU: {i.SKU}</span></h3>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </div>
-                    )
-                }
-                return null;
-            })}
-
-
-
-
-
-        </>
-
+        <div className='item-detail'>
+            <h2>{item.productname}</h2>
+            <h3><span>Qty: {item.quantity}</span> | <span>SKU: {item.SKU}</span></h3>
+            <Link to={`/item/${item._id}/update`} state={{item: item}}>Edit</Link>
+            <button>Delete</button>
+        </div>
   )
 }

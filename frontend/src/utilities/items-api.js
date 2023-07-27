@@ -11,11 +11,10 @@ export async function newItem(formData) {
 }
 
 export async function deleteItem(id){
-
   return sendRequest(`${BASE_URL}/:id`, 'DELETE', id);
 }
 
 export async function updateItem(formData){
-
-
+  const id  = formData._id;
+  return sendRequest(`${BASE_URL}/${id}/update`, 'PUT', formData);
 }

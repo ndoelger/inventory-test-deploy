@@ -26,7 +26,7 @@ export default function AddItem({ getItem }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='add-item-form'>
+    <form onSubmit={handleSubmit} className='item-form'>
       <label>Product Name: </label>
       <input
         type="text"
@@ -37,7 +37,7 @@ export default function AddItem({ getItem }) {
       />
       <label>Quantity: </label>
       <input
-        type="text"
+        type="number"
         name="quantity"
         value={item.quantity}
         onChange={handleChange}
