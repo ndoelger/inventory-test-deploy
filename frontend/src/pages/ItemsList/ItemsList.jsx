@@ -3,9 +3,8 @@ import AddItem from '../../components/AddItem/AddItem';
 import './ItemsList.css';
 
 export default function ItemsList({ getItem, items }) {
-  console.log(items)
   const inventory = items.map((i) => {
-    return <ItemCard item={i}/>;
+    return <ItemCard item={i} key={i._id}/>;
   });
 
   return (

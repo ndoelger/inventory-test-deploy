@@ -6,17 +6,13 @@ export async function getItems() {
 }
 
 export async function createItem(formData){
-
   await itemsAPI.newItem(formData);
 }
 
 export async function deleteItem(id){
-
   await itemsAPI.deleteItem(id);
-
 }
 
 export async function updateItem(formData){
-
   await itemsAPI.updateItem(formData);
 }
