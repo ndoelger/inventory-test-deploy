@@ -35,7 +35,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/" element={<ItemsList user={user} items={items} getItem={getItem} />} />
-            <Route path="/item/:id" element={<ItemDetail />} />
+            <Route path="/item/:id" element={<ItemDetail getItem={getItem} />} />
             <Route path="/item/:id/update" element={<EditPage getItem={getItem} />} />
           </Routes>
         </>

@@ -11,7 +11,8 @@ export async function newItem(formData) {
 }
 
 export async function deleteItem(id){
-  return sendRequest(`${BASE_URL}/:id`, 'DELETE', id);
+
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 
 export async function updateItem(formData){
