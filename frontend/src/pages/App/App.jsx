@@ -5,7 +5,7 @@ import { getItems } from '../../utilities/items-service';
 import ItemsList from '../ItemsList/ItemsList';
 import { getUser } from "../../utilities/users-service";
 
-import ItemDetail from "../ItemDetail/ItemDetail";
+import ItemDetail from "../../components/ItemDetail/ItemDetail";
 import { AddItem } from '../../components/AddItem/AddItem';
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../../components/AuthPage/AuthPage";
@@ -38,13 +38,14 @@ export default function App() {
           <Routes location={background || location}>
             <Route path="/" element={<ItemsList user={user} items={items} getItem={getItem} />}>
               <Route path='AddItem' element={<AddItem getItem={getItem} />} />
+              <Route path='ItemDetail' element={<ItemDetail getItem={getItem} />} />
             </Route>
-            <Route path="/item/:id" element={<ItemDetail getItem={getItem} />} />
             <Route path="/item/:id/update" element={<EditPage getItem={getItem} />} />
           </Routes>
           {background && (
             <Routes>
               <Route path="AddItem" element={<AddItem getItem={getItem} />} />
+              <Route path='ItemDetail' element={<ItemDetail getItem={getItem} />} />
             </Routes>
           )}
         </>

@@ -1,6 +1,5 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 import ItemCard from '../../components/ItemCard/ItemCard';
-import AddItem from '../../components/AddItem/AddItem';
 import './ItemsList.css';
 
 export default function ItemsList({ getItem, items }) {
@@ -14,6 +13,7 @@ export default function ItemsList({ getItem, items }) {
       <h1>InventoryItems</h1>
       <Link to='AddItem' state={{ background: location }}>Add Item</Link>
       {(items.length !== 0) ? <ul className='items-list'>{inventory}</ul> : <h2>No Items Yet!</h2>}
+      <Outlet />
     </>
   )
 };
