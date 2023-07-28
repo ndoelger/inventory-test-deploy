@@ -6,6 +6,10 @@ export async function getItems() {
   return sendRequest(BASE_URL);
 }
 
+export async function getOneItem(id) {
+  return sendRequest(`${BASE_URL}/${id}`);
+}
+
 export async function newItem(formData) {
   return sendRequest(`${BASE_URL}/new`, 'POST', formData);
 }
