@@ -1,8 +1,10 @@
-import { createItem } from "../../utilities/items-service";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { createItem } from "../../utilities/items-service";
 import './AddItem.css';
 
-export default function AddItem({ getItem }) {
+export const AddItem = ({ getItem }) => {
+  const navigate = useNavigate();
   const [item, setItem] = useState({
     productname: "",
     quantity: 0,
@@ -18,6 +20,7 @@ export default function AddItem({ getItem }) {
       SKU: "",
     });
     getItem();
+    navigate(-1);
   }
 
   function handleChange(evt) {
@@ -26,32 +29,37 @@ export default function AddItem({ getItem }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='item-form'>
-      <label>Product Name: </label>
-      <input
-        type="text"
-        name="productname"
-        value={item.productname}
-        onChange={handleChange}
-        required
-      />
-      <label>Quantity: </label>
-      <input
-        type="number"
-        name="quantity"
-        value={item.quantity}
-        onChange={handleChange}
-        required
-      />
-      <label>SKU: </label>
-      <input
-        type="text"
-        name="SKU"
-        value={item.SKU}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div className="modalDiv">
+      <div className="modal">
+        <form onSubmit={handleSubmit} className='item-form'>
+          <label>Product Name: </label>
+          <input
+            type="text"
+            name="productname"
+            value={item.productname}
+            onChange={handleChange}
+            required
+          />
+          <label>Quantity: </label>
+          <input
+            type="number"
+            name="quantity"
+            value={item.quantity}
+            onChange={handleChange}
+            required
+          />
+          <label>SKU: </label>
+          <input
+            type="text"
+            name="SKU"
+            value={item.SKU}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Submit</button>
+          <button onClick={() => navigate(-1)}>Close</button>
+        </form>
+      </div>
+    </div>
   );
-}
+};

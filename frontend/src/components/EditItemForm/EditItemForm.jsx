@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { updateItem } from "../../utilities/items-service";
 
-export default function EditPage({ getItem }) {
+export default function EditItemForm({ getItem }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { item } = location.state;
