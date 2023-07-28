@@ -16,3 +16,9 @@ export async function deleteItem(id){
 export async function updateItem(formData){
   await itemsAPI.updateItem(formData);
 }
+
+export async function getOneItem(id){
+  const token = await itemsAPI.getOneItem(id);
+  return token
+
+}
