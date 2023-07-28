@@ -24,7 +24,7 @@ export default function Modal({ getItem }) {
         { showForm ?
             <EditItemForm getItem={getItem} />
             :
-            <ItemDetail />
+            <ItemDetail getItem={getItem} />
         }
 
       </div>

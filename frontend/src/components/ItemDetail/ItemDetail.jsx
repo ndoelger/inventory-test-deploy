@@ -16,7 +16,7 @@ export default function ItemDetail({ getItem }) {
     <div className="item-detail">
     <h2>{item.productname}</h2>
     <h3>
-        <span>Qty: {item.quantity}</span> | <span>SKU: {item.SKU}</span>
+      <span>Qty: {item.quantity}</span> | <span>SKU: {item.SKU}</span>
     </h3>
     <button onClick={() => removeItem(item._id)}>Delete</button>
     <span> &nbsp; | &nbsp; </span>

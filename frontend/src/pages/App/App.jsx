@@ -11,6 +11,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../../components/AuthPage/AuthPage";
 import EditPage from "../EditPage/EditPage";
 import EditItemForm from "../../components/EditItemForm/EditItemForm";
+import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
 import "./App.css";
 
@@ -41,6 +42,7 @@ export default function App() {
               <Route path='AddItem' element={<AddItem getItem={getItem} />} />
               <Route path='Modal' element={<Modal getItem={getItem} />} />
               <Route path='EditItemForm' element={<EditItemForm getItem={getItem} />} />
+              <Route path='ItemDetail' element={<ItemDetail getItem={getItem} />} />
             </Route>
             <Route path="/item/:id/update" element={<EditPage getItem={getItem} />} />
           </Routes>
@@ -49,6 +51,7 @@ export default function App() {
               <Route path="AddItem" element={<AddItem getItem={getItem} />} />
               <Route path='Modal' element={<Modal getItem={getItem} />} />
               <Route path='EditItemForm' element={<EditItemForm getItem={getItem} />} />
+              <Route path='ItemDetail' element={<ItemDetail getItem={getItem} />} />
             </Routes>
           )}
         </>
