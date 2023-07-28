@@ -42,18 +42,15 @@ export default function ItemDetail({ getItem }) {
       <h3>
         <span>Qty: {item.quantity}</span> | <span>SKU: {item.SKU}</span>
       </h3>
-      <Link to={`/item/${item._id}/update`} state={{ item: item }}>
-        <button>Edit</button>
-      </Link>{" "}
+      <button onClick={() => plusMinusOne(1)}>+1</button>
+      <span> &nbsp;&nbsp; </span>
+      <button onClick={() => plusMinusOne(-1)}>-1</button>
       <span> &nbsp; | &nbsp; </span>
       <button onClick={() => removeItem(item._id)}>Delete</button>
+      <span> &nbsp; | &nbsp; </span>
+      <button onClick={() => navigate(-1)}>Close</button>
       <br></br>
       <br></br>
-
-    <button onClick={() => plusMinusOne(1)}>+1</button>
-    <span> &nbsp;&nbsp; </span>
-    <button onClick={() => plusMinusOne(-1)}>-1</button>
- 
     </div>
   );
 }
