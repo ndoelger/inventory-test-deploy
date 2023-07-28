@@ -9,7 +9,6 @@ import Modal from "../../components/modal/modal";
 import { AddItem } from '../../components/AddItem/AddItem';
 import NavBar from "../../components/NavBar/NavBar";
 import AuthPage from "../../components/AuthPage/AuthPage";
-import EditPage from "../EditPage/EditPage";
 import EditItemForm from "../../components/EditItemForm/EditItemForm";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
@@ -44,7 +43,6 @@ export default function App() {
               <Route path='EditItemForm' element={<EditItemForm getItem={getItem} />} />
               <Route path='ItemDetail' element={<ItemDetail getItem={getItem} />} />
             </Route>
-            <Route path="/item/:id/update" element={<EditPage getItem={getItem} />} />
           </Routes>
           {background && (
             <Routes>
