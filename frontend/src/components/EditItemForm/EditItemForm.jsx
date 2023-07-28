@@ -5,12 +5,12 @@ import { updateItem } from "../../utilities/items-service";
 export default function EditItemForm({ getItem }) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { item } = location.state;
+  const { currentItem } = location.state;
   const [updatedItem, setUpdatedItem] = useState({
-    _id: item._id,
-    productname: item.productname,
-    SKU: item.SKU,
-    quantity: item.quantity,
+    _id: currentItem._id,
+    productname: currentItem.productname,
+    SKU: currentItem.SKU,
+    quantity: currentItem.quantity,
   });
 
   async function handleSubmit(evt) {
