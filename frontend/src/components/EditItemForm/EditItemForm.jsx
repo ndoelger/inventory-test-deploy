@@ -1,12 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { updateItem, getOneItem } from "../../utilities/items-service";
 
-export default function EditItemForm({ getItem }) {
-  const location = useLocation();
+export default function EditItemForm({ getItem, currentItem, setCurrentItem, fetchOneItem }) {
   const navigate = useNavigate();
-  const { currentItem } = location.state;
-  const [item, setItem] = useState({});
   
   const [updatedItem, setUpdatedItem] = useState({
     _id: currentItem._id,
@@ -14,25 +11,6 @@ export default function EditItemForm({ getItem }) {
     SKU: currentItem.SKU,
     quantity: currentItem.quantity,
   });
-
-
-  const [displayItem, setDisplayItem] = useState({
-    _id: currentItem._id,
-    productname: currentItem.productname,
-    SKU: currentItem.SKU,
-    quantity: 0,
-  });
-
-
-  async function fetchOneItem(){
-    //console.log(currentItem._id);
-    let oneItem = await getOneItem(currentItem._id);
-    setDisplayItem(oneItem);
-    displayItem.quantity = oneItem.quantity;
-
-
-    console.log(displayItem);
-  }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -43,7 +21,7 @@ export default function EditItemForm({ getItem }) {
 
   function handleChange(evt) {
     const updatedItemData = {
-      ...updatedItem,
+      ...currentItem,
       [evt.target.name]: evt.target.value,
     };
     setUpdatedItem(updatedItemData);
@@ -51,8 +29,6 @@ export default function EditItemForm({ getItem }) {
 
   useEffect(()=>{
     fetchOneItem();
-    
-    console.log(displayItem);
   },[])
 
   return (
@@ -60,19 +36,19 @@ export default function EditItemForm({ getItem }) {
       <input
         type="text"
         name="productname"
-        value={currentItem.productname}
+        defaultValue={currentItem.productname}
         onChange={handleChange}
       />
       <input
         type="number"
         name="quantity"
-        value={displayItem.quantity}
+        defaultValue={currentItem.quantity}
         onChange={handleChange}
       />
       <input
         type="text"
         name="SKU"
-        value={currentItem.SKU}
+        defaultValue={currentItem.SKU}
         onChange={handleChange}
       />
       <button type="submit">Sumbit</button>
