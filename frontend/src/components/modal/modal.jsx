@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { deleteItem } from "../../utilities/items-service";
 import ItemDetail from '../ItemDetail/ItemDetail';
 import EditItemForm from '../EditItemForm/EditItemForm';
+import './Modal.css';
 
 export default function Modal({ getItem }) {
   const [showForm, setShowForm] = useState();
@@ -19,14 +20,12 @@ export default function Modal({ getItem }) {
   return (
     <div className="modalDiv">
       <div className="modal">
-
-        <button onClick={() => setShowForm(!showForm)}>{showForm ? 'Item Details' : 'Edit Item'}</button>
         { showForm ?
             <EditItemForm getItem={getItem} />
             :
             <ItemDetail getItem={getItem} />
         }
-
+        <button onClick={() => setShowForm(!showForm)}>{showForm ? 'Item Details' : 'Edit Item'}</button>
       </div>
     </div>
   );

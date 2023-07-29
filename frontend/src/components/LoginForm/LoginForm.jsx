@@ -24,10 +24,10 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
+    <>
       <div className="form-container">
         <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
+          <label>Email
           <input
             type="text"
             name="email"
@@ -35,7 +35,8 @@ export default function LoginForm({ setUser }) {
             onChange={handleChange}
             required
           />
-          <label>Password</label>
+          </label>
+          <label>Password
           <input
             type="password"
             name="password"
@@ -43,10 +44,11 @@ export default function LoginForm({ setUser }) {
             onChange={handleChange}
             required
           />
+          </label>
           <button type="submit">LOG IN</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </>
   );
 }

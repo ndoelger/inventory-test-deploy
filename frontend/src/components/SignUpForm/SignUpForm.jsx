@@ -37,10 +37,10 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div>
+      <>
         <div className="form-container">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
+            <label>Name
             <input
               type="text"
               name="name"
@@ -48,7 +48,8 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <label>Email</label>
+            </label>
+            <label>Email
             <input
               type="email"
               name="email"
@@ -56,7 +57,8 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <label>Password</label>
+            </label>
+            <label>Password
             <input
               type="password"
               name="password"
@@ -64,7 +66,8 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <label>Confirm</label>
+            </label>
+            <label>Confirm
             <input
               type="password"
               name="confirm"
@@ -72,13 +75,14 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
+            </label>
             <button type="submit" disabled={disable}>
               SIGN UP
             </button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
+      </>
     );
   }
 }

@@ -1,10 +1,14 @@
+.items-list-container {
+  margin-top: 2rem;
+}
+
 .items-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   list-style: none;
   width: 80%;
-  margin: auto;
+  margin: 2rem auto;
   padding: 0;
   gap: 2rem;
 }

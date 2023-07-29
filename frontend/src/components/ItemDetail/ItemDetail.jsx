@@ -19,7 +19,6 @@ export default function ItemDetail({ getItem }) {
       <span>Qty: {item.quantity}</span> | <span>SKU: {item.SKU}</span>
     </h3>
     <button onClick={() => removeItem(item._id)}>Delete</button>
-    <span> &nbsp; | &nbsp; </span>
     <button onClick={() => navigate(-1)}>Close</button>
     </div>
   );

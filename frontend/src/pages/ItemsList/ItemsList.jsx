@@ -9,11 +9,10 @@ export default function ItemsList({ getItem, items }) {
   });
 
   return (
-    <>
-      <h1>InventoryItems</h1>
-      <Link to='AddItem' state={{ background: location }}>Add Item</Link>
+    <div className='items-list-container'>
+      <Link to='AddItem' state={{ background: location }} className='button' >Add Item</Link>
       {(items.length !== 0) ? <ul className='items-list'>{inventory}</ul> : <h2>No Items Yet!</h2>}
       <Outlet />
-    </>
+    </div>
   )
 };

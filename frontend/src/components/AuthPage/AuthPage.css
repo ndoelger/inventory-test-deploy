@@ -1,0 +1,35 @@
+.auth-container {
+  display: flex;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container > form {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  width: 50%;
+  background-color: #D5BDAF;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.form-container > form > label {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.form-container > form > button {
+  display: flex;
+  width: fit-content;
+}
+
+.auth-button {
+  padding: 40px;
+  border-radius: 50%;
+  font-size: 2rem;
+}

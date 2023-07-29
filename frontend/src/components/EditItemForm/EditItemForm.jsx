@@ -49,6 +49,7 @@ export default function EditItemForm({ getItem }) {
         onChange={handleChange}
       />
       <button type="submit">Sumbit</button>
+      <button onClick={() => navigate(-1)}>Close</button>
     </form>
   );
 }
